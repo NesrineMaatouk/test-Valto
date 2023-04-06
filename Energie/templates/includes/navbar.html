@@ -1,0 +1,51 @@
+{% load static %}
+
+<header class="section-header">
+
+    
+    <section class="header-main border-bottom">
+        <div class="container">
+    <div class="row align-items-center">
+        <div class="col-lg-2 col-md-3 col-6">
+           <a href="{% url 'home' %}" class="brand-wrap">
+               <!--  <img class="logo" src="{% static './images/logo.png' %}">-->
+               <h2>Home</h2>
+            </a> 
+        </div>
+
+        <div class="col-lg  col-md-6 col-sm-12 col">
+
+        </div> <!-- col.// -->
+        <div class="col-lg-3 col-sm-6 col-8 order-2 order-lg-3">
+                    <div class="d-flex justify-content-end mb-3 mb-lg-0">
+                        <div class="widget-header">
+                            <small class="title text-muted">Welcome </small>
+
+                            <div> 
+                                <a href="{% url 'login'%}">Sign in</a> <span class="dark-transp"> | </span>
+                                <a href="{% url 'register'%}"> Register</a>
+                            </div>
+                            {% if user.is_authenticated %}
+                            <form action="{% url 'logout' %}" method="POST">
+                             {% csrf_token %}
+                             <button type="submit" class="btn btn-danger small">Logout</button>
+                             <style>
+                                .small {
+                                    font-size: 12px;
+                                    padding: 5px 10px;
+                                  }
+                            </style> 
+                            </form>
+                             {% endif %}
+                        </div>
+
+                    </div> <!-- widgets-wrap.// -->
+                </div> <!-- col.// -->
+    </div> <!-- row.// -->
+        </div> <!-- container.// -->
+    </section> <!-- header-main .// -->
+    
+    
+    
+    
+    </header> <!-- section-header.// -->
